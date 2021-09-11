@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Feedback{% endblock %}
+
+
+{% block class_color_wish %}class='color_white'{% endblock %}
+{% block class_color_store %}class='color_white'{% endblock %}
+{% block class_color_feedback %}class='color_main_theme_light'{% endblock %}
+{% block class_color_about %}class='color_white'{% endblock %}
+
+{% block content_page %}
+	<div class="feedback_main_content">
+		<div class="comment_container_send">
+			<h3 class="color_white text_center">Send</h3>
+			{% if is_owner_list %}
+				<input type="text" placeholder="Добавить желание" class="inp_place_send_wish"><br>
+			{% endif %}
+			{% if not is_owner_list %}
+				<input type="text" placeholder="Войдите, что бы оставить желание." class="inp_place_send_wish"><br>
+			{% endif %}
+		</div>
+		<div class="comment_container_all">
+			<h3 class="text_center color_white">WISHLIST PAGE</h3>
+			{% if wishlist %}
+				{% for product in wishlist.product.all %}
+					<div class="comment_container">
+						<div class="comment_container_title">
+							<a href="{{ product.link }}" class="color_white none_">{{ product.title }}</a>
+							<p class="time_comment">{{ product.create_at }}</p>
+						</div>
+						<p class="color_white">{{ product.price }}</p>
+					</div>
+				{% endfor %}
+			{% else %}
+				<div class="comment_container_none_sand ">
+					<br><br>
+					<p class="color_white text_center"> У нас пока нет записей!</p>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+
+{% endblock %}

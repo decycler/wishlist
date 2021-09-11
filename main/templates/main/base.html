@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}{% endblock %}</title>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+</head>
+<body>
+
+	<div class='main_container'>
+
+		<div class='header_container'>
+
+				<div class="top_menu">
+					<ul class="">
+			        	<li><a href="/" {% block class_color_wish %}{% endblock %}>WISH</a></li>
+			        	<li><a href="/store" {% block class_color_store %}{% endblock %}>МАГАЗ</a></li>
+			        	<li><a href="/feedback" {% block class_color_feedback %}{% endblock %}>СПИСКИ</a></li>
+			        	<li><a href="/about" {% block class_color_about %}{% endblock %}>О НАС</a></li>
+			        </ul>
+				</div>
+
+				<div class="block_top_auth">
+					<ul class="">
+						<li><a href="/admin" class="color_white">LOGIN</a></li>
+						<li><a href="" class="color_white">SING-UP</a></li>
+					</ul>
+				</div>
+			
+		</div>
+
+
+		{% block content_page %}{% endblock %}
+
+
+	</div>
+
+</body>
+</html>
