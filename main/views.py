@@ -1,8 +1,11 @@
+from datetime import datetime
+
 from django.shortcuts import render, get_object_or_404
 
 from .models import WishList
+from .forms import ProductForm
 
-# Create your views here.
+
 
 def index(request):
 	return render(request, 'main/index.html', {})
@@ -14,17 +17,23 @@ def store(request):
 	return render(request, 'main/store.html')
 
 def feedback(request, pk):
-	"""
-	FBV - views основаны на функциях 
-	CBV - views основаны на классах 
-	"""
+	"""view page the wishlist"""
 	wishlist = get_object_or_404(WishList, pk=pk)
-	print('[wishlist]', wishlist)
+	if request.method == 'POST':
+		form = ProductForm(request.POST)
+		instance_product = form.save()
+		wishlist.product.add(instance_product)
+		wishlist.save()
+	elif request.method == 'GET':
+		form = ProductForm()
+
+
 	return render(
 		request,
-		'main/feedback.html', 
+		'main/feedback.html',
 		{
-			'wishlist':wishlist,
-			"is_owner_list": wishlist.owner == request.user
+			'wishlist': wishlist,
+			"is_owner_list": wishlist.owner == request.user,
+			'form': form
 		}
 	)

@@ -14,10 +14,14 @@
 		<div class="comment_container_send">
 			<h3 class="color_white text_center">Send</h3>
 			{% if is_owner_list %}
-				<input type="text" placeholder="Добавить желание" class="inp_place_send_wish"><br>
+                <form method="POST">
+                    {% csrf_token %}
+				    {{ form.as_p }}<br>
+                    <button type="submit">Add </button>
+                </form>
 			{% endif %}
 			{% if not is_owner_list %}
-				<input type="text" placeholder="Войдите, что бы оставить желание." class="inp_place_send_wish"><br>
+				<input type="text" placeholder="Войдите, что бы оставить желание." class="form_sand_massage"><br>
 			{% endif %}
 		</div>
 		<div class="comment_container_all">

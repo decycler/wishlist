@@ -124,6 +124,8 @@ body::-webkit-scrollbar-thumb {
 
 
 
+/**************************FEEDBACK_PAGE******************************/
+
 .feedback_main_content{
 	display: flex;
 	height: auto;
@@ -182,7 +184,7 @@ body::-webkit-scrollbar-thumb {
 	text-decoration: none;
 }
 
-.inp_place_send_wish{
+.form_sand_massage{
 	margin-top: 20px;
 	border: none;
 	font-size: 20px;
