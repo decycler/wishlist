@@ -11,8 +11,14 @@
 
 {% block content_page %}
 	<div class="feedback_main_content">
+
 		<div class="comment_container_send">
 			<h3 class="color_white text_center">Send</h3>
+            <form action="/feedback/1">
+                <button class="BTN_theme" type="submit">Тема 1</button>
+            </form>
+
+
 			{% if is_owner_list %}
                 <form method="POST">
                     {% csrf_token %}
@@ -21,9 +27,11 @@
                 </form>
 			{% endif %}
 			{% if not is_owner_list %}
-				<input type="text" placeholder="Войдите, что бы оставить желание." class="form_sand_massage"><br>
+				<p class="text_center color_white">Выберите тему</p>
 			{% endif %}
+
 		</div>
+
 		<div class="comment_container_all">
 			<h3 class="text_center color_white">WISHLIST PAGE</h3>
 			{% if wishlist %}

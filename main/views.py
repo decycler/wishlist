@@ -16,6 +16,9 @@ def about(request):
 def store(request):
 	return render(request, 'main/store.html')
 
+def feedback_base(request):
+	return render(request, 'main/feedback.html')
+
 def feedback(request, pk):
 	"""view page the wishlist"""
 	wishlist = get_object_or_404(WishList, pk=pk)

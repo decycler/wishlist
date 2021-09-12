@@ -191,3 +191,25 @@ body::-webkit-scrollbar-thumb {
 	width: 305px;
 	height: 40px;
 }
+
+.BTN_theme {
+	display: block;
+	border: none;
+	margin: auto;
+	margin-top: 20px;
+	background: linear-gradient(to right, #7252C2,#F8F7FC);
+	border-radius: 10px;
+	padding: 20px;
+	color: white;
+	outline: none;
+	width:200px;
+	height: 70px;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.BTN_theme:hover {
+	opacity: .5;
+}
